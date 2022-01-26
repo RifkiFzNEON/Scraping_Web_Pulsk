@@ -1,0 +1,85 @@
+env: "development"
+apps:
+  title: "API Precalculated Table for PD MODEL ETB"
+  version: "1.0.0"
+  description: '
+  ![Python](https://img.shields.io/badge/Python-v3.8_alpine-3776AB.svg?style=flat-square&logo=python) ![FastAPI](https://img.shields.io/badge/FastAPI-v0.63.0-009688.svg?style=flat-square&logo=fastAPI) ![JSON](https://img.shields.io/badge/JSON-latest-000000.svg?style=flat-square&logo=json) ![Docker](https://img.shields.io/badge/Docker-v4.1.1-2496ED.svg?style=flat-square&logo=docker) ![Swagger](https://img.shields.io/badge/Swagger-latest-85EA2D.svg?style=flat-square&logo=swagger)
+<br/>
+<br/>
+Pembuatan API yang dipergunakan spesifik untuk kebutuhan **NEON**<br/>
+<br/>
+Pengembangan API ini menggunakan bahasa pemrograman **Python** serta framework **FastAPI** yang sudah terintegrasi dengan dokumentasi **Swagger** untuk membantu user dalam integrasi dengan sistem yang lain.
+<br/>
+Deployment kedalam internal system menggunakan **Docker Engine** untuk menstandarisasikan pengelolaan asset.
+  '
+  servers:
+    - url: "http://localhost:8001"
+      description: "localhost"
+    - url: "http://127.0.0.1:8001"
+      description: "local"
+      
+allowed_hosts:
+  - "localhost"
+  - "127.0.0.1"
+  - "192.168.14.44"
+  - "ocbcnisp.com"
+
+allow_methods:
+  - "GET"
+  - "POST"
+  - "PUT"
+  - "OPTIONS"
+
+database:
+  development:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "admin"
+    db: "postgres"
+    schema: "public"
+  staging:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "example"
+    db: "postgres"
+    schema: "public"
+  production:
+    host: "localhost"
+    port: 5432
+    username: "postgres"
+    password: "example"
+    db: "postgres"
+    schema: "public"
+
+api_token:
+  production:
+    - "production"
+    - "2ZwS5vBtrJdUwZsjqkMJdTLzdrCeEzD8"
+    - "kgzzWjRqTSP3zua2H5k4MCGVTEmBL2Q4"
+    - "rnm4v9zWfp5Rv5jVqAsaefv3Ktx3HyEY"
+    - "uf5eJD3395WR9DMQdbURvC4r9bruSCue"
+    - "Rup67BqTL6gDsr3mxLAYXCAFWyFKbqdP"
+  staging:
+    - "staging"
+    - "twWZ7GKHCDZ2cJ5qm7HQTxycH9N27MSg"
+    - "mWjeUhxRYeR869VeVUrBbNcNyrHTSDUP"
+    - "sSBDFAnw8LccRPpYdQ72DdxUP3E7ntyn"
+    - "DgnMzXcYq8deEmy2HL8eTWBRQttM5MEG"
+    - "np5MgMKPu9Zz9f7HKAgK6gTDhD3L3tmM"
+  development:
+    - "dev"
+    - "pm8tASRPetPcVL5Fx6mgUDKXnzHTFXQv"
+    - "YJsAqgYCAUQvswhqH5kRtcnQ6kCRm93s"
+    - "dHPWJJWUWbxE2CJfkHk2qtCYRC395bLs"
+    - "TYyjWyZM5RBsYM3AMVtXEnPupQn67KAM"
+    - "5HYSSqW6fZsM962ZvBnqT3cFYaqwATyq"
+
+salt_key:
+  production:
+    salt: "production"
+  staging:
+    salt: "staging"
+  development:
+    salt: "development"
