@@ -5,8 +5,16 @@ from pydantic import BaseModel
 #---------------------------------------------
 class RequestKATE(BaseModel):
     id_scrap: int = None
+    judul: str = None
+    penulis: str = None
+    foto_profil: str = None
     kategori: str = None
+    thumbnail: str = None
     jumlah_views: int = None
+    deskripsi: str  = None
+    konten: str = None
+    konten_gambar: str = None
+    tanggal: date = None
     
 class CountArticel_by_Kategori(BaseModel):
     id_scrap: int = None

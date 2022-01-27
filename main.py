@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException, Security, status
 from fastapi.security.api_key import APIKeyHeader
-# from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 from apps.helper import Config
 from apps.helper import Log
@@ -17,7 +16,6 @@ API_TOKEN_NAME = "X-Api-Token"
 API_TOKEN_HEADER = APIKeyHeader(name=API_TOKEN_NAME, auto_error=False)
 
 app = FastAPI(**PARAMS.APPS_INFORMATION, docs_url=None, redoc_url=None)
-# app.add_middleware(TrustedHostMiddleware, allowed_hosts=PARAMS.ALLOWED_HOSTS)
 app.add_middleware(CORSMiddleware,
                    allow_origins=PARAMS.ALLOWED_HOSTS,
                    allow_credentials=True,
@@ -37,7 +35,6 @@ async def custom_swagger_ui_html():
         openapi_url = app.openapi_url
     elif PARAMS.ENVIRONMENT in ['staging', 'production']:
         openapi_url = f"/neon{app.openapi_url}"
-        # openapi_url = app.openapi_url
 
     Log.info(openapi_url)
     return get_swagger_ui_html(
